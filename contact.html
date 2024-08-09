@@ -28,6 +28,7 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
@@ -216,33 +217,36 @@
                                         <span class="sub-title">Leave us massage</span>
                                         <h3 class="title">How May We Help You!</h3>
                                     </div>
-                                    <form action="#">
+ 
+                                      
+                       
+                                    <form id="submit-form" action="">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <!-- Single Form Start -->
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="Name *">
+                                                    <input type="text" placeholder="Name *"  id="name" class="form-control" name="name" required>
                                                 </div>
                                                 <!-- Single Form End -->
                                             </div>
                                             <div class="col-sm-6">
                                                 <!-- Single Form Start -->
                                                 <div class="single-form">
-                                                    <input type="email" placeholder="Email *">
+                                                    <input type="email" placeholder="Email *"  id="email" class="form-control" name="email" required>
                                                 </div>
                                                 <!-- Single Form End -->
                                             </div>
                                             <div class="col-sm-12">
                                                 <!-- Single Form Start -->
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="Subject *">
+                                                    <input type="text" placeholder="Subject *"  id="subject" class="form-control" name="subject" required>
                                                 </div>
                                                 <!-- Single Form End -->
                                             </div>
                                             <div class="col-sm-12">
                                                 <!-- Single Form Start -->
                                                 <div class="single-form">
-                                                    <textarea placeholder="Write A Message"></textarea>
+                                                    <textarea placeholder="Write A Message"  id="message" class="form-control" name="message" ></textarea>
                                                 </div>
                                                 <!-- Single Form End -->
                                             </div>
@@ -255,6 +259,23 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <script>
+                                        $("#submit-form").submit((e) => {
+                                            e.preventDefault();
+                                            $.ajax({
+                                                url: "https://script.google.com/macros/s/AKfycbyzmZdyYzI5jahsZbsHNDisfefl0_he3AUleIItt19iIyzS9JxCChRa4HD4V0CXYVi1/exec",
+                                                data: $("#submit-form").serialize(),
+                                                method: "post",
+                                                success: function (response) {
+                                                    alert("Form submitted successfully");
+                                                    window.location.reload();
+                                                },
+                                                error: function (err) {
+                                                    alert("Something went wrong");
+                                                }
+                                            });
+                                        });
+                                    </script> 
                                 </div>
                             </div>
                             <!-- Contact Form End -->
@@ -343,11 +364,11 @@
                                 <h4 class="footer-widget-title">Our Services</h4>
 
                                 <div class="widget-link">
-                                    <ul class="link">
-                                        <li><a href="#">Data Security</a></li>
-                                        <li><a href="#">IT Managment</a></li>
-                                        <li><a href="#">Outsourcing</a></li>
-                                        <li><a href="#">Networking</a></li>
+                                     <ul class="link">
+                                        <li><a href="#">Software Development</a></li>
+                                        <li><a href="#">Website Design</a></li>
+                                        <li><a href="#">Digital Marketing</a></li>
+                                        <li><a href="#">App Design</a></li>
                                     </ul>
                                 </div>
                             </div>
